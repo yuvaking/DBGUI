@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserlistComponent } from '../../../UserList/Components/userlist/userlist.component';
 import { NgForm } from '@angular/forms';
@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  @Input() afterSignUp;
   backendURL = 'http://localhost:4000/';
   constructor(private http: HttpClient) {
   }
@@ -25,7 +26,8 @@ export class SignupComponent implements OnInit {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    this.http.post(this.backendURL + 'SignUp', JSON.stringify(user), httpOptions);
+    this.http.post(this.backendURL + 'SignUp', JSON.stringify(user), httpOptions)
+    .subscribe(() => {});
   }
 
   ngOnInit() {

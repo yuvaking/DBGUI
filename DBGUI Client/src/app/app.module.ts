@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {HttpService} from './HomePage/Services/http.service';
 import { AgGridModule } from 'ag-grid-angular';
 
 
@@ -25,7 +24,7 @@ import { SignupComponent } from './SignUp/Components/signup/signup.component';
     HttpClientModule,
     AgGridModule.withComponents([]),
   ],
-  providers: [HttpService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

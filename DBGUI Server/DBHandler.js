@@ -3,8 +3,14 @@ const sql = require('mssql/msnodesqlv8');
 let DBHandler = function () { };
 
 DBHandler.prototype.addNewUser = function (input) {
-    input = Object.values(JSON.parse(input)).join(',');
-    let query = "insert into users values (" + input + ")";
+    console.log('----------------------------');
+    console.log(Object.values(JSON.parse(input)).join('\',\''));
+    let queryParam = '';
+    queryParam += '\'';
+    queryParam += Object.values(JSON.parse(input)).join('\',\'');
+    queryParam += '\'';
+    console.log(queryParam);
+    let query = "insert into users values (" + queryParam + ")";
     console.log(query);
     executeQuery(query);
 }
@@ -36,11 +42,8 @@ readFromDB = function (queryString) {
 
 executeQuery = function (queryString) {
     sql.connect(config).then(pool => {
-        pool.request().query(queryString)
-            .then(result => {
-                sql.close();
-                console.log('poopop ' + result);
-                result;
-            });
+        pool.request().query(queryString).then(result => {
+            sql.close();
+        });
     });
 }

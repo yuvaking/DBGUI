@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GridOptions } from "ag-grid";
 
@@ -8,6 +8,7 @@ import { GridOptions } from "ag-grid";
   styleUrls: ['./userlist.component.css']
 })
 export class UserlistComponent implements OnInit {
+  @Input() afterSignUp;
   backendURL = 'http://localhost:4000/';
   currentTableData: any;
   gridOptions;
@@ -33,6 +34,7 @@ export class UserlistComponent implements OnInit {
         });
         self.gridOptions.api.setColumnDefs(this.gridOptions.columnDefs);
         self.gridOptions.api.setRowData(Object.values(data));
+        self.gridOptions.api.sizeColumnsToFit();
       });
   }
 

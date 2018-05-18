@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../../Services/http.service';
 
 @Component({
   selector: 'app-homepage',
@@ -8,7 +7,7 @@ import { HttpService } from '../../Services/http.service';
 })
 
 export class HomepageComponent implements OnInit {
-  
+  afterSignUp = false;
   showHomePage = true;
   constructor(){}
 
