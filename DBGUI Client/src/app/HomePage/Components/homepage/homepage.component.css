@@ -1,0 +1,46 @@
+.col{
+    padding:0;
+}
+
+p{
+    margin:0;
+}
+
+.wrapper{
+    background: url('https://source.unsplash.com/random');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.header {
+    background-color:lightblue;
+}
+
+@font-face{
+    font-family: 'Niconne';
+    src: "https://fonts.googleapis.com/css?family=Niconne";
+  }
+
+.logo {
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    
+    color: #555;
+    text-shadow: 1px 1px azure;
+    mix-blend-mode: color-burn;
+  
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: 'Niconne';
+  
+    text-align: center;
+}
+
+.sign-up{
+    min-width:100px;
+    cursor:pointer;
+}
